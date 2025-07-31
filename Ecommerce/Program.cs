@@ -1,5 +1,7 @@
 using Ecommerce.Application;
 using Ecommerce.Infrastructure;
+using Ecommerce.Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +15,12 @@ builder.Services.AddSwaggerGen();
 #region Dependency Injection
 builder.Services.AddInfrastructureInjection()
                 .AddApplicationInjection();
+#endregion
+
+#region Database Configuration
+builder.Services.AddDbContext<ApplicationContext>(options => {
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+});
 #endregion
 
 var app = builder.Build();
