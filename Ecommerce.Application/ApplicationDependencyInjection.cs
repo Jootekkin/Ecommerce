@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Ecommerce.Application.Implementions;
+using Ecommerce.Application.Interface;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +15,7 @@ namespace Ecommerce.Application
         {
             // Register your application services here
             // Example: services.AddScoped<IMyService, MyService>();
+            services.AddScoped<IProductService, ProductService>();
             return services;
         }
     }

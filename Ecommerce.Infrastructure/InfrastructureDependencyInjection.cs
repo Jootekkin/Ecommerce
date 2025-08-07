@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Ecommerce.Infrastructure.Interface;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,7 @@ namespace Ecommerce.Infrastructure
         {
             // Register your infrastructure services here
             // Example: services.AddScoped<IMyService, MyService>();
+            services.AddScoped<IProductRepository,IProductRepository>();
             return services;
         }
     }
